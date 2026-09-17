@@ -7,13 +7,13 @@ default_target: DCM_DEV
 # CLI users can run:  snow dcm plan --target DCM_DEV  (or --target DCM_PROD)
 targets:
   DCM_DEV:
-    account_identifier: SFPSCOGS-SJ_DEMO
+    account_identifier: SFPSCOGS-SJ_DEMO_AWSWEST2
     project_name: DCM_DEMO_ADMIN.PROJECTS.SUPPORT_ANALYTICS_DEMO
     project_owner: DCM_DEVELOPER
     templating_config: DEV
 
   DCM_PROD:
-    account_identifier: SFPSCOGS-SJ_DEMO
+    account_identifier: SFPSCOGS-SJ_DEMO_AWSWEST2
     project_name: DCM_DEMO_ADMIN.PROJECTS.SUPPORT_ANALYTICS_PROD
     project_owner: DCM_DEVELOPER
     templating_config: PROD
