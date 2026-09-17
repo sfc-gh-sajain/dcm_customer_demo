@@ -1,0 +1,36 @@
+manifest_version: 2
+type: DCM_PROJECT
+default_target: DCM_DEV
+
+# Targets bind named environments to specific accounts and project objects.
+# Snowsight Workspaces reads this block to populate its Plan/Deploy panel.
+# CLI users can run:  snow dcm plan --target DCM_DEV  (or --target DCM_PROD)
+targets:
+  DCM_DEV:
+    account_identifier: SFPSCOGS-SJ_DEMO
+    project_name: DCM_DEMO_ADMIN.PROJECTS.SUPPORT_ANALYTICS_DEMO
+    project_owner: DCM_DEVELOPER
+    templating_config: DEV
+
+  DCM_PROD:
+    account_identifier: SFPSCOGS-SJ_DEMO
+    project_name: DCM_DEMO_ADMIN.PROJECTS.SUPPORT_ANALYTICS_PROD
+    project_owner: DCM_DEVELOPER
+    templating_config: PROD
+
+# Templating variables injected into definition files as Jinja {{variable}}.
+# "defaults" apply to all configs; each config can override any default.
+templating:
+  defaults:
+    wh_size: "XSMALL"
+    demo_user: "SJAIN"
+
+  configurations:
+    DEV:
+      env_suffix: "_DEV"
+      retention_days: 1
+
+    PROD:
+      env_suffix: ""
+      wh_size: "SMALL"
+      retention_days: 30
