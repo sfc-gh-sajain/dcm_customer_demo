@@ -38,5 +38,7 @@
 --              snow dcm deploy --target DCM_DEV --alias "add-channel-column"
 
 -- STEP D: Refresh + verify the new column populated without a full rebuild:
+-- This is optional and not required in production scenarios
+--In production, you wouldn't run this — the scheduler would pick up the change and refresh the dynamic table automatically within the TARGET_LAG window. It's only here so you don't stare at an empty column during a live demo.
 EXECUTE DCM PROJECT DCM_DEMO_ADMIN.PROJECTS.SUPPORT_ANALYTICS_DEMO REFRESH ALL;
 SELECT TICKET_ID, CUSTOMER_NAME, CHANNEL FROM DCM_DEMO_DEV.ANALYTICS.TICKET_RESOLUTION;

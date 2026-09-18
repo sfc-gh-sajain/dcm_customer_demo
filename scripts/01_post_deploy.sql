@@ -22,6 +22,7 @@ INSERT INTO RAW.TICKETS (TICKET_ID, CUSTOMER_NAME, AGENT_ID, PRIORITY, STATUS, O
     (1005, 'Soylent LLC',    2, 'MEDIUM', 'CLOSED', '2026-09-04 11:00:00', '2026-09-05 09:00:00');
 
 -- Dynamic table was created empty (INITIALIZE = 'ON_SCHEDULE') - force the first refresh:
+-- In production, you wouldn't run this — the scheduler refresh the dynamic table automatically within the TARGET_LAG window. It's only here so you don't stare at an empty column during a live demo.
 EXECUTE DCM PROJECT DCM_DEMO_ADMIN.PROJECTS.SUPPORT_ANALYTICS_DEMO REFRESH ALL;
 
 -- Verify the pipeline end-to-end:
